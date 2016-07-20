@@ -1,6 +1,22 @@
 "use strict";
-var app = angular.module("TodoApp", []);
+var app = angular.module("music-history", []);
 
-app.controller("NavCtrl",function($scope){
-	$scope.navItems=[{name:"Logout"},{name:"All Items"},{name:"New Items"}];
+app.controller("masterController",function($scope){
+  $scope.songView=true;
+	$scope.songList=[
+    {Album:"Collection of songs",
+    Artist:"A singer",
+    Title:"A song",
+    Genre:"Rock"}
+    ];
+  $scope.showAddView=function(){
+      $scope.songView=false;
+  };
+  $scope.showListView=function(){
+      $scope.songView=true;
+    };
+    $scope.addNewSong=function(){
+      $scope.songList.push($scope.newSong);
+      $scope.newSong={};
+    };
 });
